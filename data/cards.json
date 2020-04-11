@@ -30,10 +30,10 @@
       {"set_id": 28,"set_nos": [3, 8, 9, 15, 22, 29, 30, 35, 36],   "player" : "UshaD"},
       {"set_id": 29,"set_nos": [2, 5, 15, 17, 18, 19, 26, 33, 34],  "player" : "VidyaT"},
       {"set_id": 30,"set_nos": [1, 5, 6, 7, 19, 20, 26, 33, 34],    "player" : "VidyaU"},
-      {"set_id": 31,"set_nos": [1, 6, 9, 13, 22, 23, 24, 26, 35],   "player" : "Additional Player 1"},
-      {"set_id": 32,"set_nos": [2, 12, 15, 22, 23, 25, 29, 31, 32], "player" : "Additional Player 2"},
-      {"set_id": 33,"set_nos": [2, 3, 6, 11, 14, 20, 28, 29, 31],   "player" : "Additional Player 3"},
-      {"set_id": 34,"set_nos": [2, 9, 10, 17, 18, 19, 30, 31, 35],  "player" : "Additional Player 4"},
-      {"set_id": 35,"set_nos": [8, 13, 14, 16, 18, 21, 25, 33, 35], "player" : "Additional Player 5"}
+      {"set_id": 31,"set_nos": [1, 6, 9, 13, 22, 23, 24, 26, 35],   "player" : "[NEW] Pushpa"},
+      {"set_id": 32,"set_nos": [2, 12, 15, 22, 23, 25, 29, 31, 32], "player" : "[NEW] Juli"},
+      {"set_id": 33,"set_nos": [2, 3, 6, 11, 14, 20, 28, 29, 31],   "player" : "[NEW] Renuka"},
+      {"set_id": 34,"set_nos": [2, 9, 10, 17, 18, 19, 30, 31, 35],  "player" : "Additional Player 1"},
+      {"set_id": 35,"set_nos": [8, 13, 14, 16, 18, 21, 25, 33, 35], "player" : "Additional Player 2"}
    ]
 }

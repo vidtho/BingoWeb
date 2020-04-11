@@ -43,6 +43,10 @@ body {
 
 [id ^= 'tab'] { display: none; }
 
+.opaque{
+   opacity: 0.5;
+}
+
 
 
 /********** Small devices only **********/

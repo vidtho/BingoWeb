@@ -74,9 +74,10 @@ function buildPlayerHtml(playerjson, playerUrl) {
   var finalHtml = " ";
   var listhtml = playerUrl;
   var imglinks = ""
+  var img_id = 0;
 
 
-  // Loop over navjson array
+  // Loop over playerjson array - each player
   for (var i = 0; i < playerjson.cards.length; i++) {
 	console.log(playerjson.cards[i].set_id)
     var listhtml2 = listhtml;
@@ -85,16 +86,21 @@ function buildPlayerHtml(playerjson, playerUrl) {
     listhtml2 = insertProperty(listhtml2, "player", playerjson.cards[i].player);
 
 	console.log(listhtml2);
-    imglinks = " "
-    imglinks += "<tr>"
+    imglinks = " ";
+    imglinks += "<tr>";
+
+	// loop the deck set of each player
     for (var j = 0; j < playerjson.cards[i].set_nos.length; j++) {
 
-	 var img_id = j + 1;
+	 var img_ctr = j + 1;
+	     img_id += 1;
 	 var img_name = imgArray[playerjson.cards[i].set_nos[j]-1]
-     imglinks += "<td><img class=\"tileimage\" src=\"images/" + img_name + "\"></td>"
-     if (img_id % 3 == 0) { imglinks += "</tr><tr>" }
+//   imglinks += "<td><img class=\"tileimage\" src=\"images/" + img_name + "\"></td>"
+     imglinks += "<td><img id = \"img" + img_id + "\" onClick=\"toggle_opacity('img" + img_id + "');\" class=\"tileimage\" src=\"images/" + img_name + "\"></td>" ;
+     if (img_ctr % 3 == 0) { imglinks += "</tr><tr>" }
 //	    <tr> 
-//		  <td><img class="tileimage" src="images/1_kanji_purple.png"></td>
+//		  <td><img id="img11" onClick="toggle_opacity('img11');" class='tileimage' src="images/1_kanji_purple.png"></td>
+//		  <td><img class='tileimage' src="images/1_kanji_purple.png"></td>
 //		</tr>
      }
 	 imglinks += "</tr>" 
@@ -112,8 +118,6 @@ function buildPlayerHtml(playerjson, playerUrl) {
 //============================= load tile ====================================//
 // collect all two files playerjson, playerUrl and pass it to build function buildNAVHtml
 function ShowPlayerHTML (playerjson) {
-//  console.log (playerjson);
-//  console.log (playerUrl);
 
   $ajaxUtils.sendGetRequest(playerUrl,
     function (playerUrl) {
