@@ -1,0 +1,123 @@
+<!DOCTYPE html> 
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bingo - DeckDraw</title>
+    <meta name="description" content="Saree Bingo Deckdraw"/>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/stylesdeck.css">
+
+    <link rel="icon" type="image/png" href="images/bingo.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="images/bingo.png" sizes="16x16" />
+	<link href="https://fonts.googleapis.com/css2?family=Aladin&family=Spectral&display=swap" rel="stylesheet">
+  </head>
+
+ <body>
+
+<h1>Deck Draw</h1>
+
+<h2>Click on the Button to Draw</h2>
+<div>
+   <div id="deckp">Deck Empty</div>
+   <br />
+   <br />
+   <div id="endp">No numbers drawn</div>
+   <a href="javascript:void(0);" onclick="draw();" class="button">Draw a Deck</a>
+   <br />
+   <br />
+</div>
+<!-- ============================================================================================================ -->
+<script src="https://randojs.com/1.0.0.js"></script>
+<script>
+
+let imgarray = [
+      { image_id: 1,  image_name: "1_kanji_purple.png" ,	image_desc:"Purple kanchi"},
+      { image_id: 2,  image_name: "2_kanji_red.png",		image_desc:"Red kanchi"},
+      { image_id: 3,  image_name: "3_orange_black.png",		image_desc:"Orange dolabedi"},
+      { image_id: 4,  image_name: "4_kanji_yellow.png",		image_desc:"Yellow kanchi"},
+      { image_id: 5,  image_name: "5_gadwal_teal.png",		image_desc:"Teal gadwal"},
+      { image_id: 6,  image_name: "6_goemetric_multi.png",	image_desc:"Geometric multicolor"},
+      { image_id: 7,  image_name: "7_chanderi_red.png",		image_desc:"Red chanderi"},
+      { image_id: 8,  image_name: "8_dongria_multi.png",	image_desc:"Multicolor dongria"},
+      { image_id: 9,  image_name: "9_dongria_yellow.png",	image_desc:"Yellow dongria"},
+      { image_id: 10, image_name: "10_patola_red.png",		image_desc:"Red patola"},
+      { image_id: 11, image_name: "11_patola_blue.png",		image_desc:"Blue patola"},
+      { image_id: 12, image_name: "12_sambalpuri_orange.png",	image_desc:"Orange sambalpuri"},
+      { image_id: 13, image_name: "13_gadwal_yellow.png",	image_desc:"Yellow gadwal"},
+      { image_id: 14, image_name: "14_gadwal_white.png",	image_desc:"White gadwal"},
+      { image_id: 15, image_name: "15_kasavu.png",			image_desc:"Kerala kasavu"},
+      { image_id: 16, image_name: "16_baluchari_blue.png",	image_desc:"Blue balucheri"},
+      { image_id: 17, image_name: "17_balucheri_green.png",	image_desc:"Green baluchari"},
+      { image_id: 18, image_name: "18_narayanpet_black.png",	image_desc:"Black narayanpet"},
+      { image_id: 19, image_name: "19_chanderi_yellow.png",	image_desc:"Yellow chanderi"},
+      { image_id: 20, image_name: "20_ajrakh_red.png",		image_desc:"Red ajrakh"},
+      { image_id: 21, image_name: "21_ajrakh_blue.png",		image_desc:"Indigo ajakh"},
+      { image_id: 22, image_name: "22_chanderi_pink.png",	image_desc:"Pink chanderi"},
+      { image_id: 23, image_name: "23_bandhani_pink.png",	image_desc:"Pink bandhani"},
+      { image_id: 24, image_name: "24_bandhani_blue.png",	image_desc:"Blue bandhani"},
+      { image_id: 25, image_name: "25_paithani_blue.png",	image_desc:"Blue paithani"},
+      { image_id: 26, image_name: "26_paithani_peach.png",	image_desc:"Peach paithani"},
+      { image_id: 27, image_name: "27_paithani_purple.png",	image_desc:"Purple paithani"},
+      { image_id: 28, image_name: "28_phulkari_multi.png",	image_desc:"Multicolor phulkari"},
+      { image_id: 29, image_name: "29_phulkari_yellow.png",	image_desc:"Yellow phulkari"},
+      { image_id: 30, image_name: "30_chikenkari_black.png",	image_desc:"Black chikankari"},
+      { image_id: 31, image_name: "31_banarasi_black.png",	image_desc:"Black banarasi"},
+      { image_id: 32, image_name: "32_banarasi_purple.png",	image_desc:"Purple banarasi"},
+      { image_id: 33, image_name: "33_banarasi_pink.png",	image_desc:"Pink banarasi"},
+      { image_id: 34, image_name: "34_kalamkari_black.png",	image_desc:"Black kalamkari"},
+      { image_id: 35, image_name: "35_kalamkari_green.png",	image_desc:"Green kalamkari"},
+      { image_id: 36, image_name: "36_batik_red.png",		image_desc:"Red batik"}
+];
+
+//var deckarray = getRandomInts(37, 1, 37);
+var deckarray = randoSequence(1, 36);
+var clicks = 0;
+
+//function getRandomInt(min, max) {
+//  return Math.floor(Math.random() * (max - min) + min);
+//}
+
+////Does not work ..seeig repitations
+//function getRandomInts(num, min, max) {
+//  var ints = [];
+//  while (ints.length < num-1) {
+//    var randNum = getRandomInt(min, max);
+//    if(!ints.indexOf(randNum) > -1){
+//      ints.push(randNum);
+//    }
+//  }
+//  return ints;
+//}
+
+function draw() { 
+ clicks += 1;
+ if (clicks < 37)
+ {
+	console.log(deckarray);
+    var tble = "<table style=\"border:1px solid black;margin-left:auto;margin-right:auto;\">";
+	tble += "<tr><th> Draw Sequence </th><th>Image Number</th><th> Saree Name </th><th> Saree Image </th>";
+    for (var p=0; p<clicks; p++) 
+	{
+	  var img_id = deckarray[p]-1;
+	  tble += "<tr> <td>Draw " + (p+1) + " is:</td>" ; // Deck counter
+	  tble += "<td>" + deckarray[p] + "</td>"; // Image number /Random number
+	  tble += "<td>" + imgarray[img_id].image_desc +"</td>"; // image_name
+	  tble += "<td><img class='tileimage' src=\"images/"+ imgarray[img_id].image_name + "\"></td>" //image_pic
+	  tble += "</tr>"; 
+    }
+	tble += "</table>";
+
+	document.getElementById("deckp").innerHTML = tble; 
+	var str = "<Bold>Last Draw : </bold>" + (p);
+	document.getElementById("endp").innerHTML = str; 
+ }
+} 
+
+
+</script>
+  
+ </body>
+</html>
